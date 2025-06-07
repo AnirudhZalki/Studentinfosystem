@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 40px;
+            background: #f0f0f0;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .stats {
+            font-size: 18px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📊 Admin / Teacher Dashboard</h1>
+
+<div class="card">
+    <div class="stats">
+        <strong>Total Students:</strong> <span th:text="${totalStudents}"></span>
+    </div>
+</div>
+
+<div class="card">
+    <h2>🧑‍🎓 Recently Added Students</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="student : ${recentStudents}">
+            <td th:text="${student.name}">Name</td>
+            <td th:text="${student.rollNumber}">Roll</td>
+            <td th:text="${student.email}">Email</td>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align: center;">
+    <a th:href="@{/}" style="text-decoration: none; color: blue;">← Back to Home</a>
+</div>
+
+</body>
+</html>

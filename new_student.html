@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Student</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 30px;
+    }
+    .form-container {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Add New Student</h2>
+  <form th:action="@{/save}" th:object="${student}" method="post">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" placeholder="Enter student name" required />
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" placeholder="Enter student email" required />
+
+    <label>Roll Number:</label>
+    <input type="text" th:field="*{rollNumber}" placeholder="Enter roll number" required />
+
+    <label>Department:</label>
+    <input type="text" th:field="*{department}" placeholder="Enter department" required />
+
+    <button type="submit">Save Student</button>
+  </form>
+</div>
+
+</body>
+</html>
